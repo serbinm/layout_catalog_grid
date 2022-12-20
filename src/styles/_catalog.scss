@@ -1,22 +1,22 @@
-.catalog {
-  display: flex;
-  flex-wrap: wrap;
+@import "./utils/mixins";
+@import "./utils/variables";
 
-  max-width: 944px;
-  margin: 0 auto;
+.catalog {
+  display: grid;
+  gap: 48px;
+  justify-content: center;
+
+  @include columns(488px, 2, $column-width);
+  @include columns(768px, 3, $column-width);
+  @include columns(1024px, 4, $column-width);
 
   &__card {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: $column-width;
     height: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 48px;
-  }
-
-  &__card:not(:nth-child(4n)) {
-    margin-right: 48px;
   }
 }
